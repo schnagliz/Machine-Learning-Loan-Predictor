@@ -1,0 +1,25 @@
+import pandas as pd
+import numpy as np
+
+# Set random seed for reproducibility
+np.random.seed(42)
+
+# Generate synthetic data
+data = {
+    'Loan_ID': ['LN'+str(i).zfill(6) for i in range(1, 501)],
+    'Gender': np.random.choice(['Male', 'Female'], 500),
+    'Married': np.random.choice(['Yes', 'No'], 500),
+    'Dependents': np.random.choice(['0', '1', '2', '3+'], 500),
+    'Education': np.random.choice(['Graduate', 'Not Graduate'], 500),
+    'Self_Employed': np.random.choice(['Yes', 'No'], 500),
+    'ApplicantIncome': np.random.randint(3000, 8000, 500),
+    'CoapplicantIncome': np.random.randint(0, 3000, 500),
+    'LoanAmount': np.random.randint(100, 700, 500),
+    'Loan_Amount_Term': np.random.choice([360, 120, 240], 500),
+    'Credit_History': np.random.choice([1, 0], 500),
+    'Property_Area': np.random.choice(['Urban', 'Semiurban', 'Rural'], 500),
+    'Loan_Status': np.random.choice(['Y', 'N'], 500)
+}
+
+df = pd.DataFrame(data)
+df.head()  # Display the first few rows of the dataframe
